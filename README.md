@@ -1,133 +1,44 @@
-# 📘 Capturing Multiple Inputs with a Single State in React
+# Form Mock with `useState`
 
-## 🧠 Goal
-
-Learn how to:
-
-* Create a form with multiple fields.
-* Use `useState` to store all form data in a single state.
-* Dynamically update this state as the user types.
-* Display the data and send it (in this example, to the console).
+A small React + Vite project that demonstrates how to handle multiple form inputs using a **single object state** and dynamically update fields via a generic `handleChange`. It also logs all collected data when the user clicks **Enviar**.
 
 ---
 
-## 🧹 General Code Structure
+## Features
 
-```js
-import { useState } from "react"
-
-export default function App() {
-  ...
-}
-```
-
-* We're using **React with a function component** (`function App`) and the **`useState` hook** to manage form data.
-* We import `useState` from React to use it inside our `App` component.
+- Manage multiple inputs with a single `useState` object (`nome`, `sobrenome`, `cidade`, `rua`, `bairro`, `numero`)
+- Generic `handleChange` updates each field dynamically by name
+- “Enviar” button triggers a function that prints the full form data to the console
 
 ---
 
-## 💃 Creating State with Multiple Fields
+## Tech Stack
 
-```js
-const [formData, setFormData] = useState({
-  nome: "",
-  sobrenome: "",
-  cidade: "",
-  rua: "",
-  bairro: "",
-  numero: ""
-})
-```
-
-* `formData` stores all the input data.
-* Each form field is represented as a **key in an object**.
-* The initial value of each field is an **empty string**.
+- **React** with hooks (`useState`)
+- **Vite** for build and development
+- **JavaScript** + basic CSS styling
 
 ---
 
-## 🎯 `handleChange` Function: Updating the State
+## Screenshot
 
-```js
-function handleChange({ target }) {
-  const { name, value } = target
-  setFormData({
-    ...formData, [name]: value
-  })
-}
-```
+![Screenshot](src/assets/Screenshot-1.png)
+![Screenshot](src/assets/Screenshot-2.png)
 
-### Explanation:
+## 🚀 Getting Started
 
-* `{ target }`: is the `<input>` element that was modified.
-* `name` is the name of the field (e.g., "nome", "cidade", etc.).
-* `value` is what the user typed.
-* We use the spread operator `...formData` to **keep the previous data**, and update **only the field that changed**.
-* This is called **"dynamic property update"**.
+Clone the repository and run locally:
 
-🔔 **Warning:** If you forget `...formData`, the other data will be lost!
+```bash
+# 1) Clone the repo
+git clone https://github.com/fabioesilveira/Form-Mock-UseState.git
 
----
+# 2) Navigate to project folder
+cd Form-Mock-UseState
 
-## 🔁 `handleClick` Function: Sending the Data
+# 3) Install dependencies
+npm install
 
-```js
-function handleClick() {
-  console.log(formData)
-}
-```
+# 4) Start the development server
+npm run dev
 
-* When the button is clicked, the typed data is displayed in the console.
-
----
-
-## 📟 Form Fields
-
-```jsx
-<input
-  onChange={handleChange}
-  name="nome"
-  type="text"
-  placeholder="Nome"
-  value={formData.nome}
-/>
-```
-
-This is an example of a form field. Here's what it contains:
-
-| Property                | What it does                                                 |
-| ----------------------- | ------------------------------------------------------------ |
-| `onChange`              | Calls the `handleChange` function every time the user types. |
-| `name="nome"`           | Used to identify which field was changed.                    |
-| `value={formData.nome}` | Controls the input using React state.                        |
-| `placeholder`           | Shows a hint text when the field is empty.                   |
-
-🔀 This pattern is repeated for **all other fields**: `sobrenome`, `cidade`, `rua`, `bairro`, `numero`.
-
----
-
-## ✅ Displaying Data on the Screen
-
-```jsx
-{formData.nome} {formData.sobrenome} {formData.cidade} ...
-```
-
-* This shows in real-time what the user is typing, using the values from `formData`.
-
----
-
-## 🎉 Final Result
-
-* The user fills in the data.
-* The values are dynamically updated in the state.
-* React displays the data as the user types.
-* When **Send** is clicked, all data is shown in the console.
-
----
-
-## 📌 Tips for Beginners
-
-* Always use `value={...}` in inputs to keep control over the state.
-* Use `name="..."` with the same key names as in the state.
-* Use the spread operator `...formData` to avoid losing previous data.
-
----
