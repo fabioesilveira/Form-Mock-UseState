@@ -5,9 +5,8 @@ body {
 .div-body {
     display: flex;
     justify-content: center;
-    margin-top: 300px;
-    
-    
+    margin-top: 200px;
+
 }
 
 input {
@@ -31,4 +30,30 @@ button {
     border-radius: 10px;
     width: 100px;
     font-size: 15px;
+}
+
+.input-values-results {
+    display: flex;
+    justify-content: center;
+    font-family: "Stack Sans Notch", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 25px;
+}
+
+.paragraph {
+    font-family: "Stack Sans Notch", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 80px;
+
+}
+
+.h2-home {
+    text-align: center;
+    font-family: "Stack Sans Notch", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 40px;
+    color: rgb(92, 92, 222);
+
 }
