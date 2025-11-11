@@ -26,6 +26,9 @@ export default function App() {
     <>
 
     {formData.nome} {formData.sobrenome} {formData.cidade} {formData.rua} {formData.bairro} {formData.numero}
+
+      <div className="div-body"> 
+
       <input
         onChange={handleChange}
         name="nome"
@@ -70,6 +73,8 @@ export default function App() {
       />
 
       <button onClick={handleClick}>Enviar</button>
+
+      </div>
 
     </>
   )
